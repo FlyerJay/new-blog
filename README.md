@@ -1,18 +1,5 @@
 # new-blog
 
-> redesign
+> 使用vue2.0
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+重新看了一遍Vue的文档，2.0版本的文档比以前1.x的文档全面和细节很多。看完文档发现更新了很多机制，以前父子组件通信的机制更改很大，通知冒泡统一改为emit - on ，类似node的事件机制给开发带来了很多统一性。

@@ -41,17 +41,17 @@ export default {
   },
   methods:{
     appShow:function(){
-      this.$router.push("index");
+      this.$router.push("../index");
     }
   },
   watch:{
     "activePage":function(val){
       switch(val) {
         case 0:
-            this.$router.push("index");
+            this.$router.push("../index");
           break;
         case 1:
-            this.$router.push("catalog");
+            this.$router.push("../catalog");
           break;
       }
     }

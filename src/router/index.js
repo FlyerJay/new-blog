@@ -12,6 +12,10 @@ export default [
 				path:"/catalog",
 				component:resolve => require(["../pages/catalog"],resolve)
 			},
+			{
+				path:"/blog/:id",
+				component:resolve => require(["../pages/blog"],resolve)
+			},
 		]
 	}
 ] 

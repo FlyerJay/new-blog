@@ -1,12 +1,12 @@
 <template>
 	<div class="blog-list">
-		<div class="blog-general" v-for="(item,inde) in bloglist">
+		<div class="blog-general" v-for="(item,index) in bloglist">
 			<div class="blog-aside">
 				<span class="description">原创</span>
 				<span class="time"><i class="iconfont icon-time"></i>{{item.time}}</span>
 			</div>
 			<div class="blog-title">{{item.title}}</div>
-			<p>{{item.summary}}...<span class="view-blog">阅读全文>></span></p>
+			<p>{{item.summary}}...<span class="view-blog" @click="viewDetail(item.blogId)">阅读全文>></span></p>
 			<aside>
 				<span class="tags">前端开发</span>
 				<span class="hit"><i class="iconfont icon-view"></i>{{item.hit}}</span>
@@ -14,23 +14,47 @@
 				<span class="like"><i class="iconfont icon-like"></i>0</span>
 			</aside>
 		</div>
+		<page></page>
 	</div>
 </template>
 <script>
 	import R from "../ajax"
+	import Page from "./Page"
 	export default{
 		data () {
 			return {
-				bloglist:[]
+				bloglist:[],
+				page:1,
+				pageSize:10,
+				pageRange:[],
+				showPage:1,
+				totalPage:0,
+
+			}
+		},
+		components:{
+			Page
+		},
+		methods:{
+			updateList:function(){
+				var self = this;
+				R.getBlogList(this,{page:this.page,pageSize:this.pageSize},function(res){
+					self.bloglist = res.bloglist;
+					self.totalPage = Math.ceil(res.count/self.pageSize);
+					self.$children[0].totalPage = self.totalPage;
+				})
+			},
+			viewDetail:function(blogId){
+				this.$router.push("blog/"+blogId);
 			}
 		},
 		created:function(){
-			var self = this;
-			R.getBlogList(this,{page:1,pageSize:10},function(res){
-				self.bloglist = res.bloglist
-			})
+			this.updateList()
 		},
-		mounted:function(){
+		watch:{
+			"page":function(val){
+				this.updateList()
+			}
 		}
 	}
 </script>
