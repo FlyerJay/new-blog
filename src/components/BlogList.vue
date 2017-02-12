@@ -8,7 +8,7 @@
 			<div class="blog-title">{{item.title}}</div>
 			<p>{{item.summary}}...<span class="view-blog" @click="viewDetail(item.blogId)">阅读全文>></span></p>
 			<aside>
-				<span class="tags">前端开发</span>
+				<span class="tags">{{item.Catalog.catalogName}}</span>
 				<span class="hit"><i class="iconfont icon-view"></i>{{item.hit}}</span>
 				<span class="comment"><i class="iconfont icon-comment"></i>0</span>
 				<span class="like"><i class="iconfont icon-like"></i>0</span>
@@ -39,8 +39,11 @@
 			updateList:function(){
 				var self = this;
 				R.getBlogList(this,{page:this.page,pageSize:this.pageSize},function(res){
-					self.bloglist = res.bloglist;
-					self.totalPage = Math.ceil(res.count/self.pageSize);
+					self.bloglist = res.data.list;
+					for(var i = 0;i<self.bloglist.length;i++){
+						self.bloglist[i].time = self.bloglist[i].createdAt.substring(0,10);
+					}
+					self.totalPage = Math.ceil(res.pageinfo.totalCount/self.pageSize);
 					self.$children[0].totalPage = self.totalPage;
 				})
 			},

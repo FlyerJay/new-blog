@@ -1,3 +1,3 @@
 export default{
-	server:"http://115.29.150.218:3000"
+	server:"http://127.0.0.1:3000/snowblog/"
 }
