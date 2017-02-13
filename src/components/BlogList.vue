@@ -68,6 +68,7 @@
 		margin: 0 auto;
 		min-width: 320px;
 		padding: 0 20px;
+		min-height:600px;
 	}
 	.description{
 		background-color: #ec6149;

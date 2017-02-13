@@ -5,7 +5,7 @@
 				<div class="navigation-container">
 					<div class="brand-image"><img src="../assets/icon.jpg" alt=""></div>
 					<p>雪依旧,毕业于重庆大学计算机系,前端程序猿,对互联网充满期待和热爱,喜欢看书爱coding,希望通过个人博客和更多热爱互联网的朋友相识。</p>
-					<div class="navigation-item" @click="active=index" :class="{'active':active==index}" v-for="(item,index) in items">
+					<div class="navigation-item" @click="changeActive(index)" :class="{'active':active==index}" v-for="(item,index) in items">
 						<span><i class="iconfont" :class="item.icon"></i> {{item.title}}</span>
 					</div>
 				</div>
@@ -31,15 +31,24 @@
 				}else{
 					this.show = true
 				}
+			},
+			changeActive:function(val){
+				this.active = val;
+				this.$parent.activePage = val;
+				switch(val) {
+					case 0:
+						this.$router.push("../index");
+					break;
+					case 1:
+						this.$router.push("../catalog");
+					break;
+				}
 			}
 		},
 		watch:{
 			"show":function(val){
 				this.$parent.show = val;
 			},
-			"active":function(val){
-				this.$parent.activePage = val;
-			}
 		}
 	}
 </script>
