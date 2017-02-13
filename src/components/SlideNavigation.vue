@@ -37,10 +37,10 @@
 				this.$parent.activePage = val;
 				switch(val) {
 					case 0:
-						this.$router.push("../index");
+						this.$router.replace("/blog/index");
 					break;
 					case 1:
-						this.$router.push("../catalog");
+						this.$router.replace("/blog/catalog");
 					break;
 				}
 			}

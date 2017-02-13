@@ -48,7 +48,7 @@
 				})
 			},
 			viewDetail:function(blogId){
-				this.$router.push("blog/"+blogId);
+				this.$router.replace("/blog/blog/"+blogId);
 			}
 		},
 		created:function(){

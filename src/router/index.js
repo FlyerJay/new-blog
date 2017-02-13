@@ -5,15 +5,19 @@ export default [
 		component:App,
 		children:[
 			{
-				path:"/index",
+				path:"blog",
+				component:App,
+			},
+			{
+				path:"blog/index",
 				component:resolve => require(["../pages/index"],resolve)
 			},
 			{
-				path:"/catalog",
+				path:"blog/catalog",
 				component:resolve => require(["../pages/catalog"],resolve)
 			},
 			{
-				path:"/blog/:id",
+				path:"blog/blog/:id",
 				component:resolve => require(["../pages/blog"],resolve)
 			},
 		]

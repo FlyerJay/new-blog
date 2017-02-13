@@ -41,7 +41,7 @@ export default {
   },
   methods:{
     appShow:function(){
-      this.$router.push("../index");
+      this.$router.replace("/blog/index");
     }
   }
 }
