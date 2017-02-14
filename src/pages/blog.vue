@@ -76,9 +76,20 @@
 				font-size: 100%;
 				background-color: #f1f1f1;
 			}
+			a{
+				text-decoration: none;
+				color:#4183c4;
+				display:block;
+			}
+			a:hover{
+				text-decoration: underline;
+			}
 			p{
 				color:#333;
 				line-height:2em;
+			}
+			img{
+				max-width:100%;
 			}
 			ul{
 				background-color:#f8f8f8;
@@ -87,6 +98,20 @@
 					color:#333;
 					font-size:14px;
 					line-height:2em;
+				}
+			}
+			pre{
+				background-color:#f8f8f8;
+				border:1px solid #ccc;
+				border-radius:3px;
+				li{
+					color:#666;
+					code{
+						color:#666;
+					}
+				}
+				li:nth-child(2n){
+					background-color:#efefef;
 				}
 			}
 		}
