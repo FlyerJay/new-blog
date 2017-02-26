@@ -1,5 +1,5 @@
 <template>
-    <div class="index-page page">
+    <div class="index-page page" flex="dir:top box:mean">
         <div class="page-content">
             <div class="page-header">
             </div>
@@ -37,7 +37,7 @@
     .page{
         width:100%;
         .page-content{
-            height:1000px;
+            height:100%;
             overflow:auto;
             .page-header{
                 height:200px;
@@ -52,6 +52,10 @@
                 max-width:720px;
                 margin:0 auto;
                 margin-top:20px;
+                .blog-item{
+                    padding: 20px 0;
+                    border-bottom: 1px solid #e0e0e0;
+                }
             }
         }
     }

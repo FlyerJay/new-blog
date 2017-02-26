@@ -5,7 +5,7 @@
 				<div class="brand-image"><img src="./assets/icon.jpg"></div>
 				<p>雪依旧,毕业于重庆大学计算机系,前端程序猿,对互联网充满期待和热爱,喜欢看书爱coding,希望通过个人博客和更多热爱互联网的朋友相识。</p>
 				<div class="navigator">
-					<div class="item"v-for="(item, index) in navList" @click="showIndex = index" :class="{'active':index == showIndex}" flex="dir:left cross:center main:center">
+					<div class="item"v-for="(item, index) in navList" @click="changePage(index)" :class="{'active':index == showIndex}" flex="dir:left cross:center main:center">
 						<span><i class="iconfont" :class="item.icon"></i> {{item.title}}</span>
 					</div>
 				</div>
@@ -15,7 +15,7 @@
 			<div class="button-line"></div>
 			<div class="button-line"></div>
 		</div>
-		<transition>
+		<transition name="push">
 			<router-view></router-view>
 		</transition>
 	</div>
@@ -39,10 +39,12 @@
 				showIndex:0,
 			}
 		},
-		watch:{
-			'showIndex':function(val){
-				switch(val){
+		methods:{
+			changePage:function(index){
+				this.showIndex = index;
+				switch(index){
 					case 0:
+						this.$router.push({path:'/'});
 						break;
 					case 1:
 						break;
@@ -145,5 +147,23 @@
 				transform:rotate(-135deg);
 			}
 		}
+	}
+	.push-enter-active {
+		transition: all .2s ease-in;
+		transform: translate3d(0%,0,0);
+		z-index:1001;
+	}
+	.push-leave-active {
+		transition: all .2s ease-in;
+		transform: translate3d(0%,0,0);
+		z-index: 1000;
+	}
+	.push-leave{
+		transform: translate3d(0%,0,0);
+		z-index: 1000;
+	}
+	.push-enter{
+		transform: translate3d(100%,0,0);
+		z-index:1001;
 	}
 </style>
