@@ -89,9 +89,12 @@
 						height:40px;
 						cursor:pointer;
 						white-space:nowrap;
+						padding-left:5px;
 					}
 					.item.active{
 						background-color:#000;
+						border-left:5px solid #aaa;
+						padding-left:0px;
 					}
 				}
 			}
