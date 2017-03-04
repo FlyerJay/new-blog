@@ -1,5 +1,5 @@
 <template>
-    <div class="index-page page">
+    <div class="index-page page" flex="dir:top">
         <div class="page-content">
             <div class="page-header">
             </div>
@@ -37,7 +37,6 @@
     .page{
         width:100%;
         .page-content{
-            height:1000px;
             overflow:auto;
             .page-header{
                 height:200px;

@@ -5,7 +5,7 @@
 				<div class="brand-image"><img src="./assets/icon.jpg"></div>
 				<p>雪依旧,毕业于重庆大学计算机系,前端程序猿,对互联网充满期待和热爱,喜欢看书爱coding,希望通过个人博客和更多热爱互联网的朋友相识。</p>
 				<div class="navigator">
-					<div class="item"v-for="(item, index) in navList" @click="showIndex = index" :class="{'active':index == showIndex}" flex="dir:left cross:center main:center">
+					<div class="item"v-for="(item, index) in navList" @click="changeIndex(index)" :class="{'active':index == showIndex}" flex="dir:left cross:center main:center">
 						<span><i class="iconfont" :class="item.icon"></i> {{item.title}}</span>
 					</div>
 				</div>
@@ -39,10 +39,12 @@
 				showIndex:0,
 			}
 		},
-		watch:{
-			'showIndex':function(val){
-				switch(val){
+		methods:{
+			changeIndex:function(index){
+				this.showIndex = index;
+				switch(index){
 					case 0:
+						this.$router.push({path:'/'});
 						break;
 					case 1:
 						break;
