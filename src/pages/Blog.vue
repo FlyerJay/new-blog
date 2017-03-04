@@ -6,8 +6,7 @@
     </div>
 </template>
 <script>
-    import Tool from '../fetch'
-    export default {
+    export default{
         data () {
             return {
 

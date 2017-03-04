@@ -14,6 +14,10 @@
             <span class="hit"><i class="iconfont icon-view"></i>{{item.hit}}</span>
             <span class="love"><i class="iconfont icon-praise"></i>{{item.love}}</span>
         </div>
+        <p>
+            {{item.summary}}
+            <span @click="viewDetail( item.blogId )">阅读全文>></span>
+        </p>
     </div>
 </template>
 <script>
@@ -74,18 +78,16 @@
             }
         }
         .bottom-aside{
+            font-size:12px;
             .catalog{
                 color: #ec6149;
                 border-radius: 2px;
                 border: 1px solid #ec6149;
                 padding: 2px 5px;
-                font-size: 12px;
             }
             span{
-                font-size: 12px;
-                padding: 0 5px;
-                color: #999;
-                cursor: pointer;
+                color:#ec6149;
+                cursor:pointer;
             }
             span:hover{
                 color: #333;
