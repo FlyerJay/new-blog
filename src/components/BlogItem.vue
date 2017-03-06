@@ -14,10 +14,6 @@
             <span class="hit"><i class="iconfont icon-view"></i>{{item.hit}}</span>
             <span class="love"><i class="iconfont icon-praise"></i>{{item.love}}</span>
         </div>
-        <p>
-            {{item.summary}}
-            <span @click="viewDetail( item.blogId )">阅读全文>></span>
-        </p>
     </div>
 </template>
 <script>
@@ -47,8 +43,6 @@
 </script>
 <style lang="less" scoped>
     .item{
-        padding: 20px 0;
-        border-bottom: 1px solid #e0e0e0;
         .top-aside{
             .source{
                 background-color: #ec6149;
@@ -86,8 +80,10 @@
                 padding: 2px 5px;
             }
             span{
-                color:#ec6149;
-                cursor:pointer;
+                font-size: 12px;
+                padding: 0 5px;
+                color: #999;
+                cursor: pointer;
             }
             span:hover{
                 color: #333;
