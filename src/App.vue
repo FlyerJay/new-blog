@@ -15,9 +15,11 @@
 			<div class="button-line"></div>
 			<div class="button-line"></div>
 		</div>
-		<transition name="push">
-			<router-view></router-view>
-		</transition>
+		<div class="page-container">
+			<transition name="push">
+				<router-view></router-view>
+			</transition>
+		</div>
 	</div>
 </template>
 
@@ -112,6 +114,7 @@
 			border-radius:3px;
 			bottom:10px;
 			border:2px solid #222;
+			z-index:2;
 			cursor:pointer;
 			.button-line{
 				width:2px;
@@ -146,6 +149,9 @@
 			.button-line:nth-child(2){
 				transform:rotate(-135deg);
 			}
+		}
+		.page-container{
+			position:relative;
 		}
 	}
 </style>
