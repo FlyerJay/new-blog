@@ -2,9 +2,10 @@
     <transition>
         <div class="snowblog-indicator" v-show="visible">
             <div class="snowblog-indicator-mask"></div>
-            <div class="snowblog-indicator-animate" :class="{'repeate':repeate}">
-                <div class="snowblog-indicator-icon">
-                    雪依旧
+            <div class="snowblog-indicator-animate" >
+                <div class="snowblog-indicator-content">
+                    <span class="cont-1">SNOW BLOG</span>
+                    <span class="cont-2" :class="{'repeate':repeate}">SNOW BLOG</span>
                 </div>
             </div>
         </div>
@@ -31,44 +32,50 @@
         .snowblog-indicator-mask{
             width:100%;
             height:100%;
-            background-color:#afafaf;
+            background-color:#5cadff;
         }
         .snowblog-indicator-animate{
             position:absolute;
-            width:200px;
+            width:250px;
             height:100px;
-            background-image:-webkit-linear-gradient(-180deg, #fff 100%, #000 10px);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            text-align:center;
             top:50%;
             left:50%;
             transform:translate3d(-50%,-50%,0);
-            .snowblog-indicator-icon{
+            .snowblog-indicator-content{
                 color:#fff;
                 font-size:48px;
+                position:relative;
+                span{
+                    position:absolute;
+                    overflow:hidden;
+                    white-space:nowrap;
+                    font-family:'Brush Script MT';
+                    left:0;
+                    top:0;
+                }
+                .cont-1{
+                    color:#5cadff;
+                    width:100%;
+                }
+                .cont-2{
+                    color:#fff;
+                    width:100%;
+                }
+                .cont-2.repeate{
+                    animation:repeate ease 2s infinite;
+                }
             }
         }
         @keyframes repeate{
             0%{
-                background-image:-webkit-linear-gradient(-180deg, #fff 100%, #000 10px);
+                width:0%;
+                color:#5cadff;
             };
-            25%{
-                background-image:-webkit-linear-gradient(-180deg, #fff 50%, #000 10px);
-            };
-            50%{
-                background-image:-webkit-linear-gradient(-180deg, #fff 0%, #000 10px);
-            }  
-            75%{
-                background-image:-webkit-linear-gradient(-180deg, #fff 50%, #000 10px);
-            }; 
             100%{
-                background-image:-webkit-linear-gradient(-180deg, #fff 100%, #000 10px);
+                width:100%;
+                color:#fff;
             }
-        }
-        .snowblog-indicator-animate.repeate{
-            animation:repeate ease .5s infinite;
-            transition:all .1s ease;
         }
     }
 </style>

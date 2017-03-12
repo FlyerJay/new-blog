@@ -102,6 +102,12 @@
 					}
 				}
 			}
+			@media screen and(max-width: 818px){
+				position:absolute;
+				height:100%;
+				z-index:2;
+				opacity:0.95;
+			}
 		}
 		.slide-button{
 			width:20px;

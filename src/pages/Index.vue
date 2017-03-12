@@ -13,7 +13,7 @@
 </template>
 <script>
     import BlogItem from '../components/BlogItem'
-    import Tool from '../fetch'
+    import Tool from '../utils/Tool'
     export default {
         data () {
             return {
@@ -27,7 +27,7 @@
         },
         created:function(){
             var self = this;
-            Tool.fetch({url:'blog',method:'GET'},function(data){
+            Tool.get('blog',{},function(data){
                 self.bloglist = data.data.list;
             });
         }
@@ -36,6 +36,8 @@
 <style lang="less" scoped>
     .page{
         width:100%;
+        height:100%;
+        overflow:auto;
         .page-content{
             height:100%;
             overflow:auto;
