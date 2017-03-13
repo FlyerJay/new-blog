@@ -4,7 +4,7 @@
             :title='blog.title'
             :onExpand='onExpand.bind(this)'
         />
-        <div class="page-content">
+        <div class="page-content" @click="closeShow">
             <div class="blog">
                 <h2 class="title">{{blog.title}}</h2>
                 <aside flex="dir:left cross:center">
@@ -37,6 +37,9 @@
         methods:{
             onExpand:function(){
                 this.$parent.show = !this.$parent.show
+            },
+            closeShow:function(){
+                this.$parent.show = false;
             }
         },
         created:function(){

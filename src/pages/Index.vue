@@ -4,8 +4,7 @@
             title='SnowBlog主页'
             :onExpand="onExpand.bind(this)"
         />
-        <div class="page-content">
-            
+        <div class="page-content" @click="closeShow">
             <div class="page-header">
             </div>
             <div class="blog-list">
@@ -31,6 +30,9 @@
         methods:{
             onExpand:function(){
                 this.$parent.show = !this.$parent.show
+            },
+            closeShow:function(){
+                this.$parent.show = false;
             }
         },
         components:{

@@ -7,7 +7,7 @@
         <div class="title">{{item.title}}</div>
         <p>
             {{item.summary}}
-            <span class="learn-more" @click="learnMore(item.blogId)"><i class="iconfont icon-learn"></i>阅读全文</span>
+            <span class="learn-more" @click.stop="learnMore(item.blogId)"><i class="iconfont icon-learn"></i>阅读全文</span>
         </p>
         <div class="bottom-aside" flex="dir:left cross:center">
             <div class="catalog">{{item.Catalog.catalogName}}</div>
