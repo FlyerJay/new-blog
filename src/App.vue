@@ -46,7 +46,7 @@
 				this.showIndex = index;
 				switch(index){
 					case 0:
-						this.$router.push({path:'/'});
+						this.$router.push({path:'/blog'});
 						break;
 					case 1:
 						break;
