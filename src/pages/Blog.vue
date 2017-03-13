@@ -15,20 +15,29 @@
                 </aside>
                 <article  v-html="blog.article"></article>
             </div>
+            <div class="clickbar" flex="dir:left main:center">
+                <div class="praise-btn" @click="praise"><i class="iconfont icon-praise"></i></div>
+            </div>
+            <div class="praise-animate" :class="{'do-animate':animate}">
+                <i class="iconfont icon-praise"></i>
+            </div>
         </div>
     </div>
 </template>
 <script>
     import Tool from '../utils/Tool';
     import NavBar from '../components/NavBar';
+    import Indicator from '../components/Indicator';
     export default{
         data () {
             return {
                 blog:{
                     Catalog:{
 
-                    }
-                }
+                    },
+                },
+                isPraise:false,
+                animate:false,
             }
         },
         components:{
@@ -40,6 +49,15 @@
             },
             closeShow:function(){
                 this.$parent.show = false;
+            },
+            praise:function(){
+                if(this.isPraise) return;
+                Tool.get('love/'+this.blog.blogId,{},(data)=>{
+                    this.blog.love ++;
+                    this.animate = true;
+                })
+                setTimeout(()=>{Indicator.close()},0);
+                this.isPraise = true;
             }
         },
         created:function(){
@@ -181,6 +199,59 @@
                     img{
                         max-width:100%;
                     }
+                }
+            }
+            .clickbar{
+                height:40px;
+                margin-bottom:100px;
+                .praise-btn{
+                    text-align:center;
+                    width:100px;
+                    border-radius:20px;
+                    cursor:pointer;
+                    .iconfont{
+                        font-size:36px;
+                        color:#3498db;
+                    }
+                }
+            }
+            .praise-animate{
+                text-align:center;
+                position:absolute;
+                width:100px;
+                height:100px;
+                top:50%;
+                left:50%;
+                margin-top:-50px;
+                margin-left:-50px;
+                opacity:0;
+                .iconfont{
+                    font-size:90px;
+                    line-height:100px;
+                    color:green;
+                }
+                &.do-animate{
+                    animation:bigger 1s ease-in;
+                }
+            }
+            @keyframes bigger{
+                0%{
+                    display:block;
+                    opacity:.5;
+                    transform:scale(1);
+                };
+                10%{
+                    opacity:1;
+                    transform:scale(3);
+                };
+                70%{
+                    opacity:1;
+                    transform:scale(3)
+                }
+                100%{
+                    opacity:0;
+                    display:none;
+                    transform:scale(12);
                 }
             }
         }
