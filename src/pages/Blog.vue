@@ -1,5 +1,9 @@
 <template>
-    <div class="page blog-page" flex="dir:top box:mean">
+    <div class="page blog-page" flex="dir:top">
+        <nav-bar
+            :title='blog.title'
+            :onExpand='onExpand.bind(this)'
+        />
         <div class="page-content">
             <div class="blog">
                 <h2 class="title">{{blog.title}}</h2>
@@ -15,7 +19,8 @@
     </div>
 </template>
 <script>
-    import Tool from '../utils/Tool'
+    import Tool from '../utils/Tool';
+    import NavBar from '../components/NavBar';
     export default{
         data () {
             return {
@@ -24,6 +29,14 @@
 
                     }
                 }
+            }
+        },
+        components:{
+            NavBar
+        },
+        methods:{
+            onExpand:function(){
+                this.$parent.show = !this.$parent.show
             }
         },
         created:function(){
@@ -45,8 +58,10 @@
     .page{
         height:100%;
         overflow:hidden;
+        height:100%;
         .page-content{
             overflow:auto;
+            height:100%;
             .blog{
                 max-width: 720px;
                 margin: 0 auto;

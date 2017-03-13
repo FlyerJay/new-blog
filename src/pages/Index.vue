@@ -1,6 +1,11 @@
 <template>
     <div class="index-page page" flex="dir:top">
+        <nav-bar
+            title='SnowBlog主页'
+            :onExpand="onExpand.bind(this)"
+        />
         <div class="page-content">
+            
             <div class="page-header">
             </div>
             <div class="blog-list">
@@ -14,6 +19,7 @@
 <script>
     import BlogItem from '../components/BlogItem'
     import Tool from '../utils/Tool'
+    import NavBar from '../components/NavBar'
     export default {
         data () {
             return {
@@ -22,8 +28,14 @@
                 ]
             }
         },
+        methods:{
+            onExpand:function(){
+                this.$parent.show = !this.$parent.show
+            }
+        },
         components:{
             BlogItem,
+            NavBar
         },
         created:function(){
             var self = this;
@@ -47,6 +59,7 @@
                 background-repeat:no-repeat;
                 background-position:center;
                 background-size:cover;
+                
             }
             .blog-list{
                 padding: 0 20px;

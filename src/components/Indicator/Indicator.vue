@@ -4,8 +4,8 @@
             <div class="snowblog-indicator-mask"></div>
             <div class="snowblog-indicator-animate" >
                 <div class="snowblog-indicator-content">
-                    <span class="cont-1">SNOW BLOG</span>
-                    <span class="cont-2" :class="{'repeate':repeate}">SNOW BLOG</span>
+                    <img src="../../assets/icon.png" alt="">
+                    <div class="content-mask"></div>
                 </div>
             </div>
         </div>
@@ -36,7 +36,7 @@
         }
         .snowblog-indicator-animate{
             position:absolute;
-            width:250px;
+            width:200px;
             height:100px;
             text-align:center;
             top:50%;
@@ -46,35 +46,41 @@
                 color:#fff;
                 font-size:48px;
                 position:relative;
-                span{
+                height:100%;
+                overflow:hidden;
+                img{
+                    width:100%;
+                    height:100%;
                     position:absolute;
-                    overflow:hidden;
-                    white-space:nowrap;
-                    font-family:'Brush Script MT';
                     left:0;
                     top:0;
+                    bottom:0;
+                    animation:fade 1.5s ease infinite;
                 }
-                .cont-1{
-                    color:#5cadff;
-                    width:100%;
-                }
-                .cont-2{
-                    color:#fff;
-                    width:100%;
-                }
-                .cont-2.repeate{
-                    animation:repeate ease 2s infinite;
+                .content-mask{
+                    position:absolute;
+                    right:0;
+                    top:0;
+                    bottom:0;
+                    animation:repeate 1.5s ease infinite;
+                    background-color:#5cadff;
                 }
             }
         }
         @keyframes repeate{
             0%{
-                width:0%;
-                color:#5cadff;
+                width:100%;
             };
             100%{
-                width:100%;
-                color:#fff;
+                width:0%;
+            }
+        }
+        @keyframes fade{
+            0%{
+                opacity:1;
+            };
+            100%{
+                opacity:0;
             }
         }
     }

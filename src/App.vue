@@ -139,6 +139,9 @@
 			.button-line:nth-child(2){
 				transform:rotate(0deg);
 			}
+			@media screen and(max-width: 818px){
+				display:none;
+			}
 		}
 		.slide-button.show-menu{
 			left:160px;
@@ -158,6 +161,7 @@
 		}
 		.page-container{
 			position:relative;
+			height:100%;
 		}
 	}
 </style>
