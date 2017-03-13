@@ -10,6 +10,7 @@ Tool.fetch = function(params,callback){
         return res.json();
     }).then((json) => {
         callback && callback(json);
+        Indicator.close();
     })
 }
 
