@@ -15,8 +15,8 @@
                 </aside>
                 <article  v-html="blog.article"></article>
             </div>
-            <div class="clickbar" flex="dir:left main:center">
-                <div class="praise-btn" @click="praise"><i class="iconfont icon-praise"></i></div>
+            <div class="clickbar" flex="dir:left main:center cross:center">
+                <div class="praise-btn" @click.stop="praise" :class="{'clicked':animate}"><i class="iconfont icon-praise"></i><span class="praise-count" :class="{'do-animate':animate}">+1<span></div>
             </div>
             <div class="praise-animate" :class="{'do-animate':animate}">
                 <i class="iconfont icon-praise"></i>
@@ -55,12 +55,11 @@
                 Tool.get('love/'+this.blog.blogId,{},(data)=>{
                     this.blog.love ++;
                     this.animate = true;
-                })
-                setTimeout(()=>{Indicator.close()},0);
+                },{mask:false})
                 this.isPraise = true;
             }
         },
-        created:function(){
+        mounted:function(){
             var blogId = this.$route.params.id;
             Tool.get('blog/'+blogId,{},(data)=>{
                 this.blog = data.data;
@@ -202,16 +201,46 @@
                 }
             }
             .clickbar{
-                height:40px;
+                height:100px;
                 margin-bottom:100px;
+                position:relative;
                 .praise-btn{
                     text-align:center;
                     width:100px;
                     border-radius:20px;
                     cursor:pointer;
+                    transition:all 1s ease-out;
                     .iconfont{
                         font-size:36px;
                         color:#3498db;
+                        transition:all 1s ease-out;
+                    }
+                    &.clicked{
+                        background-color:#3498db;
+                        .iconfont{
+                            color:#fff;
+                        }
+                    }
+                    .praise-count{
+                        color:#ff9900;
+                        font-weight:bold;
+                        position:absolute;
+                        left:49%;
+                        bottom:50px;
+                        opacity:0;
+                        &.do-animate{
+                            animation:upper 1s ease-in;
+                        }
+                    }
+                    @keyframes upper{
+                        0%{
+                            opacity:1;
+                            bottom:50px;
+                        }
+                        100%{
+                            opacity:.5;
+                            bottom:100px;
+                        }
                     }
                 }
             }

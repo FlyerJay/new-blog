@@ -39,7 +39,7 @@
             BlogItem,
             NavBar
         },
-        created:function(){
+        mounted:function(){
             var self = this;
             Tool.get('blog',{},function(data){
                 self.bloglist = data.data.list;

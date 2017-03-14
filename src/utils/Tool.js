@@ -15,6 +15,7 @@ Tool.ajax = function(mySetting){
         type:'GET',
         data:{},
         dataType:'json',
+        mask:true,
         timeout:30000,
         success:function (data) {},
         error:function (error) {},
@@ -35,7 +36,9 @@ Tool.ajax = function(mySetting){
         return false;
     }
     var xhr = new XMLHttpRequest();
-    Indicator.open();
+    if(setting.mask){
+        Indicator.open();
+    }
     try{
         if ( setting.type === 'GET' || setting === 'get') {
             sData = setting.url + '?' + sData;
@@ -169,13 +172,14 @@ Tool.post = function (pathname, data, success, error) {
  * @param {function} success  请求成功执行方法
  * @param {function} error    请求失败执行方法
  */
-Tool.get = function (pathname, data, success, error) {
+Tool.get = function (pathname, data, success,setting,error) {
     var setting = {
         url: target + pathname, //默认ajax请求地址
         type: 'GET', //请求的方式
         data: data, //发给服务器的数据
         success: success || function () { }, //请求成功执行方法
-        error: error || function () { } //请求失败执行方法
+        error: error || function () { }, //请求失败执行方法
+        ...setting
     };
     return Tool.ajax(setting);
 };
