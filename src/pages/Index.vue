@@ -1,7 +1,7 @@
 <template>
     <div class="index-page page" flex="dir:top">
         <nav-bar
-            title='SnowBlog主页'
+            title='博客'
             :onExpand="onExpand.bind(this)"
         />
         <div class="page-content" @click="closeShow">

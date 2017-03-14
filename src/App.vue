@@ -44,11 +44,13 @@
 		methods:{
 			changeIndex:function(index){
 				this.showIndex = index;
+				this.show = false;
 				switch(index){
 					case 0:
 						this.$router.push({path:'/blog'});
 						break;
 					case 1:
+						this.$router.push({path:'/catalog'});
 						break;
 				}
 			}
