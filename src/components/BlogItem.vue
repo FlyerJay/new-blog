@@ -11,8 +11,8 @@
         </p>
         <div class="bottom-aside" flex="dir:left cross:center">
             <div class="catalog">{{item.Catalog.catalogName}}</div>
-            <span class="hit"><i class="iconfont icon-view"></i>{{item.hit}}</span>
-            <span class="love"><i class="iconfont icon-praise"></i>{{item.love}}</span>
+            <span class="hit"><i class="iconfont icon-yuedu"></i>{{item.hit}}</span>
+            <span class="love"><i class="iconfont icon-zan"></i>{{item.love}}</span>
         </div>
     </div>
 </template>
@@ -20,7 +20,6 @@
     export default{
         data () {
             return {
-
             }
         },
         props:{

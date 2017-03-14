@@ -27,7 +27,7 @@
 	export default {
 		data ()	{
 			return {
-				show:true,
+				show:false,
 				navList:[
 					{
 						title:"主页",
@@ -106,7 +106,6 @@
 				position:absolute;
 				height:100%;
 				z-index:2;
-				opacity:0.95;
 			}
 		}
 		.slide-button{

@@ -16,10 +16,10 @@
                 <article  v-html="blog.article"></article>
             </div>
             <div class="clickbar" flex="dir:left main:center cross:center">
-                <div class="praise-btn" @click.stop="praise" :class="{'clicked':animate}"><i class="iconfont icon-praise"></i><span class="praise-count" :class="{'do-animate':animate}">+1<span></div>
+                <div class="praise-btn" @click.stop="praise" :class="{'clicked':animate}"><i class="iconfont icon-zan"></i><span class="praise-count" :class="{'do-animate':animate}">+1<span></div>
             </div>
             <div class="praise-animate" :class="{'do-animate':animate}">
-                <i class="iconfont icon-praise"></i>
+                <i class="iconfont icon-zan"></i>
             </div>
         </div>
     </div>
@@ -202,14 +202,14 @@
             }
             .clickbar{
                 height:100px;
-                margin-bottom:100px;
                 position:relative;
                 .praise-btn{
                     text-align:center;
                     width:100px;
-                    border-radius:20px;
+                    border-radius:30px;
                     cursor:pointer;
                     transition:all 1s ease-out;
+                    padding:5px 10px;
                     .iconfont{
                         font-size:36px;
                         color:#3498db;
@@ -227,6 +227,7 @@
                         position:absolute;
                         left:49%;
                         bottom:50px;
+                        font-size:24px;
                         opacity:0;
                         &.do-animate{
                             animation:upper 1s ease-in;
@@ -247,17 +248,17 @@
             .praise-animate{
                 text-align:center;
                 position:absolute;
-                width:100px;
-                height:100px;
+                width:150px;
+                height:150px;
                 top:50%;
                 left:50%;
-                margin-top:-50px;
-                margin-left:-50px;
+                margin-top:-100px;
+                margin-left:-75px;
                 opacity:0;
                 .iconfont{
-                    font-size:90px;
-                    line-height:100px;
-                    color:green;
+                    font-size:120px;
+                    line-height:150px;
+                    text-shadow:10px 10px 10px #888;
                 }
                 &.do-animate{
                     animation:bigger 1s ease-in;
@@ -268,19 +269,23 @@
                     display:block;
                     opacity:.5;
                     transform:scale(1);
+                    color:#efefef;
                 };
                 10%{
                     opacity:1;
-                    transform:scale(3);
+                    transform:scale(1.5);
+                    color:#efefef;
                 };
                 70%{
                     opacity:1;
-                    transform:scale(3)
+                    transform:scale(1.5);
+                    color:#3399ff;
                 }
                 100%{
                     opacity:0;
                     display:none;
-                    transform:scale(12);
+                    transform:scale(5);
+                    color:#3399ff;
                 }
             }
         }
