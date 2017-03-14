@@ -16,7 +16,7 @@
                 <article  v-html="blog.article"></article>
             </div>
             <div class="clickbar" flex="dir:left main:center cross:center">
-                <div class="praise-btn" @click.stop="praise" :class="{'clicked':animate}"><i class="iconfont icon-zan"></i><span class="praise-count" :class="{'do-animate':animate}">+1<span></div>
+                <div class="praise-btn" @click.stop="praise" :class="{'clicked':animate}"><i class="iconfont icon-zan"></i><span class="praise-count" :class="{'do-animate':animate}">+1</span></div>
             </div>
             <div class="praise-animate" :class="{'do-animate':animate}">
                 <i class="iconfont icon-zan"></i>
