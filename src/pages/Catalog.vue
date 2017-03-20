@@ -62,6 +62,7 @@
                 max-width:720px;
                 margin:0 auto;
                 margin-bottom:20px;
+                overflow:hidden;
                 .catalog-item{
                     width:300px;
                     height:200px;
